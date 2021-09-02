@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul id="nav">
+            <li>{% block nav-home %}<a href="{% url 'home' %}">Home</a>{% endblock %}</li>
+    </ul>
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+        {{form.as_table}}
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <ul id="nav">
+            <li>{% block nav-display %}<a href="{% url 'displaystudents' %}">Display Students</a>{% endblock %}</li>
+            <li>{% block nav-add %}<a href="{% url 'addstudent' %}">Add Student</a>{% endblock %}</li>
+            <li>{% block nav-find %}<a href="{% url 'getstudent' %}">Find Student</a>{% endblock %}</li>
+            <li>{% block nav-delete %}<a href="{% url 'deletestudent' %}">Delete Student</a>{% endblock %}</li>
+        </ul>
+{% endblock %}

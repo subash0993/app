@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <ul id="nav">
+            <li>{% block nav-home %}<a href="{% url 'home' %}">Home</a>{% endblock %}</li>
+    </ul>
+    {% if students %}
+        <table border="1">
+            <tr>
+                <th>StudentID</th>
+                <th>StudentFisrtName</th>
+                <th>StudentLast</th>
+                <th>MarkOne</th>
+                <th>MarkTwo</th>
+                <th>MarkThree</th>
+                <th>MarkFour</th>
+                <th>MarkFive</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.studentId }}</td>
+                <td>{{ student.firstName }}</td>
+                <td>{{ student.lastName }}</td>
+                <td>{{ student.markOne }}</td>
+                <td>{{ student.markTwo }}</td>
+                <td>{{ student.markThree }}</td>
+                <td>{{ student.markFour }}</td>
+                <td>{{ student.markFive }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </table>
+    {% else %}
+        <h4>No Data Available please add student details</h4>
+        <ul id="nav1">
+            <li>{% block nav-add %}<a href="{% url 'addstudent' %}">Add Student</a>{% endblock %}</li>
+        </ul>
+    {% endif %}
+<!--    <form action="add" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        enter student id = <input type="text" name="sid"><br>-->
+<!--        enter student fisrtname = <input type="text" name="sfname"><br>-->
+<!--        enter student lastname = <input type="text" name="slname"><br>-->
+<!--        enter student mark1 = <input type="text" name="mark1"><br>-->
+<!--        enter student mark2 = <input type="text" name="mark2"><br>-->
+<!--        enter student mark3 = <input type="text" name="mark3"><br>-->
+<!--        enter student mark4 = <input type="text" name="mark4"><br>-->
+<!--        enter student mark5 = <input type="text" name="mark5"><br>-->
+<!--        <input type="submit">-->
+<!--    </form>-->
+
+{% endblock %}
